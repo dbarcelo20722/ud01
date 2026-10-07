@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <h1>Index</h1>
+    <button id="btnAjuda">Ajuda</button>
+    <script>
+        const finestraAjuda = window.open("ajuda.html", "finestraAjuda", "width=600,height=450");
+        if (finestraAjuda === null) {
+            alert("El navegador ha bloquejat la finestra d'ajuda.");
+        } else {
+            console.log("Context de la pàgina principal:");
+            console.log("window:", window);
+            console.log("document:", document);
+            console.log("location:", location);
+        }
+    </script>
+</body>
+</html>
