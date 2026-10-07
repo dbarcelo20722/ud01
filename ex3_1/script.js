@@ -4,7 +4,7 @@ const num = 20;
 if(!num || num < 0 || !Number.isInteger(num)){
     console.log('Numero no valid');
 } else{
-    console.log(`ANALISIS DEL NUMERO ${num}`);
+    document.getElementById('num').textContent = `Analisis del numero ${num}`;
     esPar(num);
     esPrimo(num);
     divisoresPropios(num);
@@ -15,19 +15,20 @@ if(!num || num < 0 || !Number.isInteger(num)){
 
 function esPar(num) { 
     if(num % 2 === 0){
-        return console.log('Es par');
+        return document.getElementById('par').textContent = 'Es par';
     }else {
-        return console.log('Es inpar');
+        return document.getElementById('par').textContent = 'Es impar';
     }
 }
 
 function esPrimo(num) { 
     for(let n = num-1 ; n > 1; n--){
         if(num % n === 0){
-            return console.log('No es primo');
+            return document.getElementById('primo').textContent = 'No es primo';
         }
     };
-    return console.log('Es primo');
+    return document.getElementById('primo').textContent = 'Es primo';
+
 }
 function divisoresPropios(num) {
     let divisores = '';
@@ -41,7 +42,7 @@ function divisoresPropios(num) {
         n++;
     } while (n < num);
 
-    return console.log(divisores.trim());
+    return document.getElementById('divisores').textContent = `Divisores primos: ${divisores.trim()}`;
 }
 
 function sumaDivisoresPropios(num) { 
@@ -56,15 +57,15 @@ function sumaDivisoresPropios(num) {
         n++;
     } while (n < num);
 
-    return divisores;
+    return document.getElementById('suma').textContent = `Suma de divisores propios: ${divisores}`;
 } 
 
 function clasificarNumero(num) { 
     if(sumaDivisoresPropios(num)==num) {
-        return console.log('Perfecto');
+        return document.getElementById('clasificacion').textContent = `El numero ${num} es perfecto`;
     } else if(sumaDivisoresPropios(num)>num) {
-        return console.log('Abundante');
+        return document.getElementById('clasificacion').textContent = `El numero ${num} es abundante`;
     }else {
-        return console.log('Deficiente');
+        return document.getElementById('clasificacion').textContent = `El numero ${num} es deficiente`;
     };
 } 
