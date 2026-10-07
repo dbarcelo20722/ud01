@@ -67,3 +67,81 @@
 
 // const retornObjecte = nom => ({nom, actiu: true});
 // console.log(retornObjecte('david'));
+
+// Callback -> Es llamada a una funcio que es passa com a parametre a una altra funcio. La funcio que rep la callback decideix quan i com executar-la.
+// function executarOperacio(a, b, operacio){
+//     return operacio(a, b);
+// }
+
+// function sumar(a, b){
+//     return a + b;
+// }
+// let resultat = executarOperacio(5, 6, sumar);
+// resultat = executarOperacio(5, 6, function(a, b){
+//     return a * b;
+// });
+// resultat = executarOperacio(5, 6, (a, b) => a / b);
+// console.log(resultat);
+
+// let text = '   Hola, mundos   ';
+
+// function procesarText(text, operacio){
+//     const txt = text.trim();
+//     return operacio(txt);
+// } 
+
+// function majusculas(text){
+//     return text.toUpperCase();
+// }
+
+// function contarCaracteres(text){
+//     return text.length;
+// }
+  
+// console.log(procesarText(text, majusculas));
+// console.log(procesarText(text, contarCaracteres));
+
+// Callbacks sincron(se ejecuta al mismo monento que lo llama la funcion) i asincrons(se ejecuta mas adelante)
+// Sincron
+// function saludar(nom, callback) {
+//     console.log(`Hola ${nom}!`);
+//     callback();
+//     console.log("La funcio saludar ha acabat");
+// }
+
+
+// console.log("Inicio del programa");
+// saludar('David', () => {
+//     console.log('Se esta ejecutando el callback');
+// });
+
+// console.log('Final del programa');
+// console.log(" ");
+// console.log(" ");
+
+// Asincron
+// console.log("Inicio");
+
+// setTimeout(() => {
+//     console.log("Pasaron 2s");
+// }, 2000);
+
+
+// console.log("Final");
+
+function executarAsincronament(callback, t){
+    console.log('Antes de programar el callback');
+
+    setTimeout(callback, t);
+
+    console.log('Despues de programar el callback');
+};
+
+console.log('Inici');
+
+executarAsincronament(() => {
+    console.log('Callback asincron!');
+}, 3000);
+
+console.log('Final');
+
