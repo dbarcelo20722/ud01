@@ -19,6 +19,16 @@ const total = gastos.reduce((acum, gasto) => acum + gasto);
 console.log(`Total: ${total}, Media:${total/gastos.length}`); 
 
 // 3.5.5 Ordena una copia de un array de números de mayor a menor sin modificar el original.
-
+const numeros = [1, 5, 3, 8, 2];
+const copia = numeros.slice();
+copia.sort((a, b) => b - a);
+console.log(`Original: ${numeros}, Copia ordenada: ${copia}`);
 
 // 3.5.6 A partir de un array de palabras, encuentra la primera que empiece por vocal, comprueba si todas tienen contenido y calcula el número total de caracteres.
+const palabras = ['hola', 'adios', 'uno', 'dos', 'tres'];
+const primeraVocal = palabras.find(p => ['a', 'e', 'i', 'o', 'u'].includes(p[0].toLowerCase()));
+const todasTienenContenido = palabras.every(p => p.trim() !== '');
+const totalCaracteres = palabras.reduce((acum, palabra) => acum + palabra.length, 0);
+console.log(`Primera palabra que empieza por vocal: ${primeraVocal}`);
+console.log(`Todas las palabras tienen contenido: ${todasTienenContenido}`);
+console.log(`Total de caracteres: ${totalCaracteres}`);
