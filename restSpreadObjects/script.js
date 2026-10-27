@@ -114,15 +114,15 @@
 // const preus = productes.filter(producte => producte.preu > 20);
 // console.log(preus);
 
-const persona = {
-    nom: "Joana",
-    edat: 33,   
-};
+// const persona = {
+//     nom: "Joana",
+//     edat: 33,   
+// };
 
-const {nom, edat} = persona;
-console.log(nom, edat);
+// const {nom, edat} = persona;
+// console.log(nom, edat);
 
-const matricula = "1234ABC";
-const model = "Seat";
-const cotxe = {matricula, model};
-console.log(cotxe);
+// const matricula = "1234ABC";
+// const model = "Seat";
+// const cotxe = {matricula, model};
+// console.log(cotxe);
