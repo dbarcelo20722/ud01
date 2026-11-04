@@ -126,3 +126,77 @@
 // const model = "Seat";
 // const cotxe = {matricula, model};
 // console.log(cotxe);
+const productes = [
+    {id: 1, nom: "Teclat", preu: 99.99, stock: 8, category: "Periferic"},
+    {id: 2, nom: "Ratoli", preu: 39.99, stock: 7, category: "Pantalla"},
+    {id: 3, nom: "Monitor", preu: 149.99, stock: 0, category: "Periferic"}
+]
+// console.log(productes[0].nom);
+// Ultim element
+// console.log(productes.at(-1).nom);
+
+// Recorrer i desestructurar
+// for(const{ nom, preu, stock} of productes){
+//     const estat = stock > 0 ? "disponible" : "agotado";
+//     console.log(`${nom}: ${preu.toFixed(2)}€ - ${estat}`);
+// }
+
+// const disponibles = productes.filter(p => p.stock > 0);
+// const etiquetes = productes.map(({nom, preu}) => `${nom} - ${preu}`);
+// const dos = productes.find(p => p.category === 'Periferic');
+// const nose = productes.every(p => p.preu >= 0 && p.stock >= 0);
+// const final = productes.reduce((a, p) =>{return a+=p.stock},0);
+// console.log(final);
+
+// Encadenar operacions
+const aparadors = productes
+    .filter(p => p.stock > 0)
+    .toSorted((a, b) => a.preu - b.preu)
+    .map(({nom, preu}) => ({nom, preuAmbIVA: preu * 1.21}));
+// console.log(aparadors);
+
+// Referencies i Mutacions
+// Operacions que muten
+// 1. push, pop, shift, unshift
+// 2. splice 
+// 3. sort, reverse
+// 4. obj.prop = valor
+
+// Alternatives que no muten
+// 1. concat, slice, concat
+// 2. slice, filter, toSpliced
+// 3. toSorted, toReversed
+// 4. {...obj, prop: valor}
+
+// Patrons d'Actualització Inmutable
+// Afegir i eliminar
+// const nou = {id: 4, nom: "Webcam", preu: 49.99, stock: 5};
+// const ampliats = [...productes, nou];
+// console.log(ampliats);
+
+// Actualitzar
+function actualitzarStock(llista, id, nouStock){
+    return llista.map(p => p.id === id ? {...p, stock: nouStock} : p);
+}
+const actualitzats = actualitzarStock(productes, 2, 10);
+// console.log(actualitzats);
+// console.log(productes);
+
+// Copia superficial i dades imbricades
+const usuaris = {
+    nom: "Anna",
+    contacte: {
+        correu: "anna@gmail.com",
+        ciutat: "Maó"
+    }
+}
+
+const usuarisActualitzats = {
+    ...usuaris,
+    contacte: {
+        ...usuaris.contacte,
+        ciutat: "Alaior"
+    }
+}
+console.log(usuarisActualitzats);
+console.log(usuaris);
