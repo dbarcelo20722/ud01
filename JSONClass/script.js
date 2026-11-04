@@ -88,6 +88,7 @@ class Producte {
     static desDeProducte(){
         return new Producte(2, "Ratoli", 19.19, 8);
     }
+
 }
 
 // const teclat = new Producte(1, "Teclat", 29.99, 10);
